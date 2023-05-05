@@ -5,7 +5,7 @@ from matplotlib.ticker import FuncFormatter
 
 
 def millions_formatter(x: float, pos: int) -> str:
-    """millions_formatter(x, pos)
+    """millions_formatter(x: float, pos: int) -> str
 
 Convert axis tick value to millions and format as string with "M" suffix
 
@@ -20,7 +20,7 @@ Returns:
 
 
 def thousands_formatter(x: float, pos: int) -> str:
-    """thousands_formatter(x, pos)
+    """thousands_formatter(x: float, pos: int) -> str
 
 Convert axis tick value to millions and format as string with "M" suffix
 
@@ -34,14 +34,14 @@ Returns:
     return f"{x/1e3:.0f}k"
 
 
-def create_plot(df, countries):
-    """create_plot(df, country)
+def create_plot(df: pd.core.frame.DataFrame, countries: list):
+    """create_plot(df: pd.core.frame.DataFrame, countries: list)
 
 Creates a plot of the life expectancy projections for the given country
 
 Args:
-    - df (pd.DataFrame): A pandas dataframe with columns for country, year,
-                         and life expectancy
+    - df (pd.DataFrame): A pandas dataframe with columns for country and years,
+                         containing population data
     - country (str): The name of the country to plot data for
 
 Returns:
@@ -54,12 +54,12 @@ Raises:
     - Exception: If there is an unexpected error while creating the plot
 """
     try:
-        assert type(df) is pd.core.frame.DataFrame, "first argument must be a\
-                                                     pandas dataframe"
+        assert type(df) is pd.core.frame.DataFrame, "first argument must be a \
+pandas dataframe"
         assert type(countries) is list, "second argument must be a list"
         for country in countries:
-            assert type(country) is str, "every element of the second argument\
-                                          must be a string"
+            assert type(country) is str, "every element of the second \
+argument must be a string"
         df.set_index('country', inplace=True)
         fig, ax = plt.subplots()
         for country in countries:
@@ -73,13 +73,13 @@ Raises:
             ax.yaxis.set_major_formatter(FuncFormatter(thousands_formatter))
         plt.xlabel('Year')
         plt.ylabel('Population')
-        plt.title('%s Population Projections')
+        plt.title('Population Projections')
         plt.legend(loc="lower right")
     except AssertionError as msg:
         print("create_plot: AssertionError:", msg)
     except KeyError as key:
-        print("create_plot: KeyError: key", key, "could not be found\
-                                                  in the dataframe")
+        print("create_plot: KeyError: key", key, "could not be found \
+in the dataframe")
     except Exception as msg:
         print("create_plot: Error:", msg)
 
