@@ -4,13 +4,13 @@ from load_csv import load
 
 
 def create_plot(df: pd.core.frame.DataFrame, country: str):
-    """create_plot(df, country)
+    """create_plot(df: pd.core.frame.DataFrame, country: str)
 
 Creates a plot of the life expectancy projections for the given country
 
 Args:
-    - df (pandas.DataFrame): A pandas dataframe with columns for country, year,
-                             and life expectancy
+    - df (pandas.DataFrame): A pandas dataframe with columns for country and
+                             years, containing life expectancy data
     - country (str): The name of the country to plot data for
 
 Returns:
@@ -23,8 +23,8 @@ Raises:
     - Exception: If there is an unexpected error while creating the plot
 """
     try:
-        assert type(df) is pd.core.frame.DataFrame, "first argument must be a\
-                                                     pandas dataframe"
+        assert type(df) is pd.core.frame.DataFrame, "first argument must be a \
+pandas dataframe"
         assert type(country) is str, "second parameter must be a string"
         df.set_index('country', inplace=True)
         data = df.loc[country]
@@ -35,8 +35,8 @@ Raises:
     except AssertionError as msg:
         print("create_plot: AssertionError:", msg)
     except KeyError as key:
-        print("create_plot: KeyError: key", key, "could not be found in the\
-                                                  dataframe")
+        print("create_plot: KeyError: key", key, "could not be found in the \
+dataframe")
     except Exception as msg:
         print("create_plot: Error:", msg)
 
@@ -46,7 +46,7 @@ def main():
 
 The life expectancy dataframe is loaded using the `load` function from the
 `load_csv` module. Then, a lineplot for Germany is created using the
-`create_plot` function. Finally, the plot is displayed using `plot.show()`.
+`create_plot` function. Finally, the plot is displayed using `plt.show()`.
 
 Args:
     None
