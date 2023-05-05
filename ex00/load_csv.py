@@ -1,6 +1,7 @@
 import pandas as pd
 
-def load(path: str) -> pandas.core.frame.DataFrame:
+
+def load(path: str) -> pd.core.frame.DataFrame:
     """load(path: str)
 
 Lodas and returns a csv file
@@ -9,16 +10,18 @@ Args:
     - path (str): the path of the file to be read
 
 Returns:
-    pd.core.frame.DataFrame: A pandas dataframe with the contents of the csv file.
+    pd.core.frame.DataFrame: A pandas dataframe with the contents of the csv
+    file.
 
 Raises:
-    FileNotFoundError: If the provided path does not exist.
-    AssertionError: If the provided argument is not a string.
-    pd.errors.ParserError: If there is an error while parsing the csv file.
-    UnicodeDecodeError: If there is an error while decoding the csv file.
-    ValueError: If there is a problem with the provided argument or csv file.
-    PermissionError: If there is a problem with permissions for accessing the csv file.
-    Exception: If there is an unexpected error while loading the csv file.
+    - FileNotFoundError: If the provided path does not exist.
+    - AssertionError: If the provided argument is not a string.
+    - pd.errors.ParserError: If there is an error while parsing the csv file.
+    - UnicodeDecodeError: If there is an error while decoding the csv file.
+    - ValueError: If there is a problem with the provided argument or csv file.
+    - PermissionError: If there is a problem with permissions for accessing the
+                       csv file.
+    - Exception: If there is an unexpected error while loading the csv file.
 """
     try:
         assert type(path) is str, "argument must be a string"
