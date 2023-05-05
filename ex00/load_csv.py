@@ -4,10 +4,10 @@ import pandas as pd
 def load(path: str) -> pd.core.frame.DataFrame:
     """load(path: str)
 
-Lodas and returns a csv file
+Loads, prints the dimensions and returns a csv file
 
 Args:
-    - path (str): the path of the file to be read
+    - path (str): The path of the file to be read
 
 Returns:
     pd.core.frame.DataFrame: A pandas dataframe with the contents of the csv
@@ -26,6 +26,7 @@ Raises:
     try:
         assert type(path) is str, "argument must be a string"
         csv = pd.read_csv(path)
+        print("Loading dataset of dimensions", csv.shape)
     except FileNotFoundError:
         print("load: FileNotFoundError: %s is not a valid path" % path)
         return None
