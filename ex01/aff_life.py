@@ -57,8 +57,8 @@ Returns:
 Raises:
     See load.__doc__ and create_plot.__doc__
 """
-    df = load("life_expectancy_years.csv")
-    create_plot(df, "Germany")
+    lifeExpectancy = load("life_expectancy_years.csv")
+    create_plot(lifeExpectancy, "Germany")
     plt.show()
 
 
