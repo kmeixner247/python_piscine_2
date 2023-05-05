@@ -44,8 +44,9 @@ Raises:
 def main():
     """main function of aff_life.py
 
-Loads the given path into a pandas dataframe, creates a plot for the given
-country and displays that plot
+The life expectancy dataframe is loaded using the `load` function from the
+`load_csv` module. Then, a lineplot for Germany is created using the
+`create_plot` function. Finally, the plot is displayed using `plot.show()`.
 
 Args:
     None
