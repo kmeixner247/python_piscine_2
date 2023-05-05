@@ -45,7 +45,7 @@ Args:
     - country (str): The name of the country to plot data for
 
 Returns:
-    - None
+    None
 
 Raises:
     - AssertionError: If either of the provided arguments has the wrong type.

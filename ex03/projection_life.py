@@ -66,13 +66,13 @@ sets the data of the current plot:
     - Labels the x- and y-axis and specifies the title
 
 Args:
-    - None
+    None
 
 Returns:
-    - None
+    None
 
 Raises:
-    - None
+    None
 """
     ax = plt.gca()
     ax.set_xscale('log')
@@ -137,10 +137,8 @@ the plot is displayed using `plt.show()`.
         None
 
     Raises:
-        AssertionError: If any of the assertions in the `create_plot` function
-                        fail.
-        Exception: If there is an unexpected error while creating the plot.
-    """
+        see load.__doc__ and create_plot.__doc__
+"""
     gdp = load("income_per_person_gdppercapita_ppp_inflaction_adjusted.csv")
     lifeExpectancy = load("life_expectancy_years.csv")
     create_plot(gdp, lifeExpectancy, 1900)
