@@ -31,8 +31,8 @@ Raises:
     - Exception: If there is an unexpected error while merging the dataframes.
 """
     try:
-        assert type(gdp) is pd.core.frame.DataFrame, "first argument must be\
-                                                      panda dataframes"
+        assert type(gdp) is pd.core.frame.DataFrame, "first argument must be \
+panda dataframes"
         assert type(lifeExpectancy) is\
             pd.core.frame.DataFrame, "second argument must be panda dataframes"
         assert type(year) is int, "third argument must be integer"
@@ -44,11 +44,11 @@ Raises:
         return None
     except KeyError:
         print("create_df_at_year: KeyError: key %d does not exist in both \
-                                                            dataframes" % year)
+dataframes" % year)
         return None
     except TypeError:
-        print("create_df_at_year: TypeError: non-numeric data in one of the\
-                                                                dataframes")
+        print("create_df_at_year: TypeError: non-numeric data in one of the \
+dataframes")
         return None
     except Exception as msg:
         print("create_df_at_year: Error:", msg)
@@ -108,8 +108,8 @@ Raises:
         assert type(gdp) is pd.core.frame.DataFrame,\
                                     "first argument must be panda dataframes"
         assert type(lifeExpectancy)\
-            is pd.core.frame.DataFrame, "second argument must\
-                                         be panda dataframes"
+            is pd.core.frame.DataFrame, "second argument must \
+be panda dataframes"
         assert type(year) is int, "third argument must be integer"
         merged_df = merge_dataframes_at_year(gdp, lifeExpectancy, year)
         merged_df.plot.scatter(x=str(year)+"_x", y=str(year)+"_y")
@@ -139,7 +139,7 @@ the plot is displayed using `plt.show()`.
     Raises:
         see load.__doc__ and create_plot.__doc__
 """
-    gdp = load("income_per_person_gdppercapita_ppp_inflaction_adjusted.csv")
+    gdp = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     lifeExpectancy = load("life_expectancy_years.csv")
     create_plot(gdp, lifeExpectancy, 1900)
     plt.show()
